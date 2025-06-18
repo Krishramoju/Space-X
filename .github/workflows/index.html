@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SpaceX AI Portal</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -98,10 +98,10 @@
       height: auto;
       border-radius: 8px;
     }
-    pre, code { white-space: pre-wrap; word-break: break-word; }
   </style>
 </head>
 <body>
+  <!-- Login Page -->
   <div class="login-register" id="loginPage">
     <h2>Login</h2>
     <input id="loginUser" type="text" placeholder="Username" />
@@ -110,6 +110,7 @@
     <p>or <a href="#" onclick="switchPage('registerPage')">Register</a></p>
   </div>
 
+  <!-- Register Page -->
   <div class="login-register" id="registerPage" style="display: none;">
     <h2>Register</h2>
     <input id="regUser" type="text" placeholder="New Username" />
@@ -118,6 +119,7 @@
     <p>or <a href="#" onclick="switchPage('loginPage')">Login</a></p>
   </div>
 
+  <!-- Main Navigation -->
   <header id="mainHeader" style="display: none">
     <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/d/de/SpaceX-Logo.svg" alt="SpaceX" />
     <nav>
@@ -134,66 +136,168 @@
     </nav>
   </header>
 
+  <!-- Hero -->
   <div class="hero" id="heroBanner" style="display: none">
     <h1>Explore Autonomous Intelligence with SpaceX</h1>
   </div>
 
+  <!-- Collab Hub -->
+  <section id="collab">
+    <div class="container">
+      <h2>Collaboration Hub</h2>
+      <div class="card">
+        <p>Discuss topics like:</p>
+        <ul>
+          <li>AI-driven launch sequence optimization</li>
+          <li>Predictive maintenance for rockets</li>
+          <li>AI-based satellite path correction</li>
+          <li>ML for deep space communication</li>
+        </ul>
+        <textarea id="msgInput" placeholder="Post a message..." rows="3"></textarea>
+        <button onclick="postMessage()">Post</button>
+        <div id="messages"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- API Integration -->
+  <section id="api">
+    <div class="container">
+      <h2>API Integration</h2>
+      <div class="card">
+        <h3>AstroBot Data Needs</h3>
+        <p>Orbital parameters, fuel tables, launch windows</p>
+      </div>
+      <div class="card">
+        <h3>FleetBot Data Needs</h3>
+        <p>Satellite telemetry, positional logs, ground station data</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security -->
+  <section id="security">
+    <div class="container">
+      <h2>Security Center</h2>
+      <div class="card">
+        <p>AI Privacy Highlights:</p>
+        <ul>
+          <li>Federated learning for decentralized training</li>
+          <li>End-to-end encrypted inference models</li>
+          <li>Onboard data anonymization protocols</li>
+        </ul>
+        <p>CPU: <span id="cpu">--%</span>, Memory: <span id="mem">--%</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marketplace -->
+  <section id="apps">
+    <div class="container">
+      <h2>Marketplace AI Assistants</h2>
+      <div class="card">
+        <h3>DockBot</h3>
+        <p>Autonomous docking planner</p>
+      </div>
+      <div class="card">
+        <h3>HealthBot</h3>
+        <p>Monitors astronaut vitals using AI</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Launches -->
   <section id="launches">
     <div class="container">
       <h2>Launches</h2>
       <div class="card">
         <p>Falcon 9: 257 successful launches</p>
-        <p>Upcoming: Starlink 9A — June 22, 2025</p>
-        <img class="full-width" src="images/falcon 9.png" alt="Falcon 9 Launch" />
-        <img class="full-width" src="images/starlink.jpg" alt="Starlink Network" />
+        <img class="full-width" src="images/falcon 9.png" />
+        <img class="full-width" src="images/starlink.jpg" alt="Starlink" />
       </div>
     </div>
   </section>
 
+  <!-- Starship -->
   <section id="starship">
     <div class="container">
       <h2>Starship Program</h2>
       <div class="card">
-        <p>Starship SN29 ready for orbital test flight</p>
+        <p>Starship SN29 ready for orbital test</p>
+        
       </div>
     </div>
   </section>
 
+  <!-- AI Bots -->
+  <section id="aibots">
+    <div class="container">
+      <h2>AI Mission Bots</h2>
+      <div class="card">
+        <h3>OrbitBot</h3>
+        <ul>
+          <li>Prompt: “Simulate reentry path from LEO”</li>
+          <li>Response: “Deorbit burn at 90° longitude, T‑5 mins from current orbit...”</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Control -->
+  <section id="aicontrol">
+    <div class="container">
+      <h2>AI Ground Control</h2>
+      <div class="card">
+        <ul>
+          <li>AI-controlled telemetry alerts</li>
+          <li>Abort readiness simulations</li>
+          <li>Fallback recovery AI logic</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2>About</h2>
+      <div class="card">
+        <p>We're entering a new era where AI seamlessly governs missions — autonomous, intelligent, and precise. This portal reflects SpaceX's vision of pushing AI into orbit, laying foundations for AI-assisted industries of tomorrow.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Behind the Brains -->
   <section id="brains">
     <div class="container">
       <h2>Behind the Brains of Neuro OS</h2>
       <div class="card">
         <h3>Krish Ramoju</h3>
-        <p><strong>Undergrad CSE | Hackerank Certified SDE Professional | Headstart'25 Volunteer | LLM Enthusiast | CDSC Junior Developer | Internshala Campus Ambassador | Upcoming eArbor WMS Intern | Product Management Aspirant</strong></p>
-        <p>I am an avid coder having earned certifications in programming languages, data structures, and full-stack development. I'm passionate about enhancing my competitive programming skills.</p>
+        <p>Undergrad CSE | HackerRank Certified SDE | Headstart'25 Volunteer | LLM Enthusiast | CDSC Junior Developer | Internshala Campus Ambassador | Upcoming eArbor WMS Intern | Product Management Aspirant</p>
+        <p>I am an avid coder with certifications in programming languages, DSA, and full stack development. Currently working on improving competitive coding skills.</p>
         <h4>Education</h4>
         <ul>
-          <li><strong>Chaitanya Bharathi Institute Of Technology</strong> – B.
-            E. CSE (Apr 2023 – Apr 2027)</li>
-          <li>AAKASH INSTITUTE</li>
+          <li>CBIT, B.E. CSE (2023–2027)</li>
+          <li>Aakash Institute</li>
           <li>Sancta Maria International School</li>
         </ul>
-        <h4>Licenses & Certifications</h4>
+        <h4>Certifications</h4>
         <ul>
-          <li>50 days of SQL – LeetCode</li>
+          <li>50 Days of SQL – LeetCode</li>
           <li>C++ OOPs – Coursera</li>
-          <li>CS50 Cybersecurity – Harvard University</li>
+          <li>CS50 Cybersecurity – Harvard</li>
           <li>Database Essentials – Infosys Springboard</li>
           <li>HTML CSS Basics – Mimo</li>
           <li>Programming in C – NPTEL</li>
           <li>Software Development Fundamentals – HackerRank</li>
         </ul>
         <h4>Skills</h4>
-        <ul>
-          <li>Front-End Development</li>
-          <li>Back-End Development</li>
-          <li>Programming Languages: C, C++, HTML, CSS, SQL</li>
-          <li>Cybersecurity, DBMS, Customer Marketing</li>
-        </ul>
+        <p>Front-End & Back-End Dev, C++, HTML, CSS, SQL, DBMS, Cybersecurity, Product Thinking</p>
       </div>
     </div>
   </section>
 
+  <!-- JavaScript -->
   <script>
     let users = {};
     let currentUser = "";
@@ -229,11 +333,17 @@
       document.getElementById(id).style.display = 'block';
     }
 
-    setInterval(() => {
-      if (document.getElementById('cpu') && document.getElementById('mem')) {
-        cpu.innerText = Math.floor(Math.random() * 90 + 10) + '%';
-        mem.innerText = Math.floor(Math.random() * 80 + 20) + '%';
+    function postMessage() {
+      const msg = msgInput.value.trim();
+      if (msg && currentUser) {
+        messages.innerHTML += `<p><strong>${currentUser}:</strong> ${msg}</p>`;
+        msgInput.value = "";
       }
+    }
+
+    setInterval(() => {
+      cpu.innerText = Math.floor(Math.random() * 90 + 10) + '%';
+      mem.innerText = Math.floor(Math.random() * 80 + 20) + '%';
     }, 3000);
   </script>
 </body>
