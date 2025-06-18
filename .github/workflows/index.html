@@ -10,14 +10,14 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #000;
-      color: #fff;
+      background: linear-gradient(to bottom, #14001f, #1a0030);
+      color: #ffffff;
       line-height: 1.6;
     }
     header {
-      background-color: #000;
+      background: #1a0030;
       padding: 1rem 2rem;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid #39004d;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -35,9 +35,10 @@
       font-weight: bold;
       text-transform: uppercase;
       font-size: 0.9rem;
+      transition: color 0.3s;
     }
     nav a:hover {
-      color: #00bfff;
+      color: #ff66ff;
     }
     .hero {
       background: url('images/hero.jpg') no-repeat center center/cover;
@@ -49,9 +50,10 @@
     }
     .hero h1 {
       font-size: 3rem;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(20, 0, 31, 0.7);
       padding: 1rem;
       border-radius: 10px;
+      color: #00ffff;
     }
     section {
       padding: 2rem;
@@ -65,18 +67,20 @@
       margin: auto;
     }
     .card {
-      background: #111;
+      background: #260040;
       padding: 1rem;
       margin: 1rem 0;
       border-radius: 8px;
+      box-shadow: 0 0 10px #ff00ff20;
     }
     .login-register {
       text-align: center;
       max-width: 400px;
       margin: 3rem auto;
-      background-color: #111;
+      background-color: #260040;
       padding: 2rem;
       border-radius: 10px;
+      box-shadow: 0 0 12px #00ffff40;
     }
     input, button {
       width: 100%;
@@ -84,24 +88,36 @@
       margin-top: 1rem;
       border-radius: 5px;
       border: none;
+      font-size: 1rem;
+    }
+    input {
+      background: #1b002f;
+      color: #fff;
+      border: 1px solid #ff66ff30;
     }
     button {
-      background: #00bfff;
+      background: #ff66ff;
       font-weight: bold;
+      color: #fff;
       cursor: pointer;
+      box-shadow: 0 0 8px #ff66ff80;
+      transition: background 0.3s, box-shadow 0.3s;
     }
     button:hover {
-      background: #00a0cc;
+      background: #cc00cc;
+      box-shadow: 0 0 12px #ff66ff;
     }
     img.full-width {
       width: 100%;
       height: auto;
       border-radius: 8px;
     }
+    ul li { margin-bottom: 0.5rem; }
+    h2, h3, h4 { color: #00ffff; }
+    a { color: #00ffff; }
   </style>
 </head>
 <body>
-  <!-- Login Page -->
   <div class="login-register" id="loginPage">
     <h2>Login</h2>
     <input id="loginUser" type="text" placeholder="Username" />
@@ -110,7 +126,6 @@
     <p>or <a href="#" onclick="switchPage('registerPage')">Register</a></p>
   </div>
 
-  <!-- Register Page -->
   <div class="login-register" id="registerPage" style="display: none;">
     <h2>Register</h2>
     <input id="regUser" type="text" placeholder="New Username" />
@@ -119,7 +134,6 @@
     <p>or <a href="#" onclick="switchPage('loginPage')">Login</a></p>
   </div>
 
-  <!-- Main Navigation -->
   <header id="mainHeader" style="display: none">
     <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/d/de/SpaceX-Logo.svg" alt="SpaceX" />
     <nav>
@@ -136,12 +150,10 @@
     </nav>
   </header>
 
-  <!-- Hero -->
   <div class="hero" id="heroBanner" style="display: none">
     <h1>Explore Autonomous Intelligence with SpaceX</h1>
   </div>
 
-  <!-- Collab Hub -->
   <section id="collab">
     <div class="container">
       <h2>Collaboration Hub</h2>
@@ -160,7 +172,6 @@
     </div>
   </section>
 
-  <!-- API Integration -->
   <section id="api">
     <div class="container">
       <h2>API Integration</h2>
@@ -175,7 +186,6 @@
     </div>
   </section>
 
-  <!-- Security -->
   <section id="security">
     <div class="container">
       <h2>Security Center</h2>
@@ -191,45 +201,35 @@
     </div>
   </section>
 
-  <!-- Marketplace -->
   <section id="apps">
     <div class="container">
       <h2>Marketplace AI Assistants</h2>
-      <div class="card">
-        <h3>DockBot</h3>
-        <p>Autonomous docking planner</p>
-      </div>
-      <div class="card">
-        <h3>HealthBot</h3>
-        <p>Monitors astronaut vitals using AI</p>
-      </div>
+      <div class="card"><h3>DockBot</h3><p>Autonomous docking planner</p></div>
+      <div class="card"><h3>HealthBot</h3><p>Monitors astronaut vitals using AI</p></div>
     </div>
   </section>
 
-  <!-- Launches -->
   <section id="launches">
     <div class="container">
       <h2>Launches</h2>
       <div class="card">
         <p>Falcon 9: 257 successful launches</p>
-        <img class="full-width" src="images/falcon 9.png" />
+        <img class="full-width" src="images/falcon 9.png" alt="Falcon 9"/>
         <img class="full-width" src="images/starlink.jpg" alt="Starlink" />
       </div>
     </div>
   </section>
 
-  <!-- Starship -->
   <section id="starship">
     <div class="container">
       <h2>Starship Program</h2>
       <div class="card">
         <p>Starship SN29 ready for orbital test</p>
-        
+
       </div>
     </div>
   </section>
 
-  <!-- AI Bots -->
   <section id="aibots">
     <div class="container">
       <h2>AI Mission Bots</h2>
@@ -243,7 +243,6 @@
     </div>
   </section>
 
-  <!-- AI Control -->
   <section id="aicontrol">
     <div class="container">
       <h2>AI Ground Control</h2>
@@ -257,7 +256,6 @@
     </div>
   </section>
 
-  <!-- About -->
   <section id="about">
     <div class="container">
       <h2>About</h2>
@@ -267,7 +265,6 @@
     </div>
   </section>
 
-  <!-- Behind the Brains -->
   <section id="brains">
     <div class="container">
       <h2>Behind the Brains of Neuro OS</h2>
@@ -297,7 +294,6 @@
     </div>
   </section>
 
-  <!-- JavaScript -->
   <script>
     let users = {};
     let currentUser = "";
