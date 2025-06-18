@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SpaceX AI Portal</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -98,6 +98,7 @@
       height: auto;
       border-radius: 8px;
     }
+    pre, code { white-space: pre-wrap; word-break: break-word; }
   </style>
 </head>
 <body>
@@ -140,9 +141,11 @@
     <div class="container">
       <h2>Collaboration Hub</h2>
       <div class="card">
-        <textarea id="msgInput" placeholder="Post a message..." rows="3"></textarea>
-        <button onclick="postMessage()">Post</button>
-        <div id="messages"></div>
+        <p><strong>AI in Launch Vehicles:</strong> Predictive maintenance, real-time anomaly detection, and launch trajectory optimization using reinforcement learning.</p>
+        <p><strong>AI in Satellites:</strong> Onboard data pre-processing, anomaly detection in-orbit, and autonomous station-keeping using neural networks.</p>
+        <p><strong>AI in Deep Space Missions:</strong> Communication delay adaptation using autonomous agents, fault recovery without human intervention.</p>
+        <p><strong>AI in Manufacturing:</strong> Robotics and computer vision for inspection, inventory prediction with AI, automated tooling systems.</p>
+        <p><strong>AI in Space Traffic:</strong> Collision avoidance systems, prediction of satellite drifts, debris tracking using AI-enhanced radar analysis.</p>
       </div>
     </div>
   </section>
@@ -151,21 +154,14 @@
     <div class="container">
       <h2>API Integration</h2>
       <div class="card">
-        <h3>Orbital Engine API</h3>
-        <pre>function calculateOrbit(velocity, altitude) {
-  const G = 6.674e-11;
-  const massEarth = 5.972e24;
-  return Math.sqrt((G * massEarth) / (altitude + 6.371e6));
-}</pre>
-      </div>
-      <div class="card">
-        <h3>Launch Scheduler API</h3>
-        <pre>POST /schedule/launch
-{
-  "vehicle": "Falcon 9",
-  "payload": "Starlink-XX",
-  "date": "2025-06-22T14:00:00Z"
-}</pre>
+        <h3>AstroBot</h3>
+        <p>Requires: Launch parameters, delta-V databases, planetary alignment data</p>
+        <h3>FleetBot</h3>
+        <p>Requires: Starlink satellite telemetry, orbital parameters, weather data</p>
+        <h3>DragonBot</h3>
+        <p>Requires: Cabin telemetry, crew biosignals, oxygen and temp sensors</p>
+        <h3>OrbitBot</h3>
+        <p>Requires: Satellite position logs, orbit models, propulsion constants</p>
       </div>
     </div>
   </section>
@@ -174,15 +170,12 @@
     <div class="container">
       <h2>Security Center</h2>
       <div class="card">
-        <p>CPU Usage: <span id="cpu">--%</span></p>
-        <p>Memory Usage: <span id="mem">--%</span></p>
-      </div>
-      <div class="card">
-        <h3>Security Measures</h3>
+        <p><strong>Privacy in AI Systems:</strong></p>
         <ul>
-          <li>End-to-end encrypted systems</li>
-          <li>Launch command lockdowns</li>
-          <li>Real-time threat detection</li>
+          <li>Federated Learning: Training models without transmitting sensitive data</li>
+          <li>Zero Trust Architecture for AI APIs</li>
+          <li>Encrypted AI pipelines to prevent tampering</li>
+          <li>Real-time privacy-preserving inference on satellites</li>
         </ul>
       </div>
     </div>
@@ -190,42 +183,18 @@
 
   <section id="apps">
     <div class="container">
-      <h2>Marketplace AI Assistants</h2>
+      <h2>AI Marketplace</h2>
       <div class="card">
-        <h3>AstroBot</h3>
+        <h3>AI Assistant Store</h3>
         <ul>
-          <li>"Calculate optimal launch trajectory for mission Artemis"</li>
-          <li>"Compare Delta-V costs for orbital transfers"</li>
-          <li>"Predict fuel burn during atmospheric reentry"</li>
+          <li><strong>AstroBot:</strong> Launch computation</li>
+          <li><strong>NavBot:</strong> GNSS route corrections</li>
+          <li><strong>DockBot:</strong> ISS docking procedures</li>
+          <li><strong>HealthBot:</strong> Crew health diagnostics</li>
+          <li><strong>FuelBot:</strong> Propellant consumption estimator</li>
+          <li><strong>FleetBot:</strong> Starlink monitoring and optimization</li>
         </ul>
-      </div>
-      <div class="card">
-        <h3>MissionPlanner AI</h3>
-        <ul>
-          <li>"Design a week-long Mars exploration itinerary"</li>
-          <li>"Schedule synchronized launches for satellites"</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="launches">
-    <div class="container">
-      <h2>Launches</h2>
-      <div class="card">
-        <p>Falcon 9: 257 successful launches</p>
-        <p>Upcoming: Starlink 9A — June 22, 2025</p>
-        <img class="full-width" src="images/falcon 9.png" />
-      </div>
-    </div>
-  </section>
-
-  <section id="starship">
-    <div class="container">
-      <h2>Starship Program</h2>
-      <div class="card">
-        <p>Starship SN29 ready for orbital test flight</p>
-        <img class="full-width" src="images/starship.png" alt="Starship" />
+        <p><em>Coming Soon: Custom Bot Builder with plug-in APIs</em></p>
       </div>
     </div>
   </section>
@@ -233,75 +202,16 @@
   <section id="aibots">
     <div class="container">
       <h2>AI Mission Bots</h2>
-
       <div class="card">
-        <h3>LaunchBot</h3>
-        <p>Handles timeline logistics and liftoff queries.</p>
-        <ul>
-          <li>"What’s the next launch window for Mars missions?"</li>
-          <li>"Prepare checklist for Falcon 9 prelaunch sequence"</li>
-        </ul>
+        <h3>AstroBot</h3>
+        <p><strong>Prompt:</strong> "What's the ideal launch time for Jupiter orbit?"<br><strong>Response:</strong> "Based on alignment, Jan 5, 2026 provides lowest delta-V."</p>
+        <p><strong>Prompt:</strong> "Compare trajectories to Mars for next window."<br><strong>Response:</strong> "Options: Hohmann vs Ballistic; Hohmann saves 15% fuel."</p>
       </div>
-
       <div class="card">
         <h3>DragonBot</h3>
-        <p>Crew management and capsule monitoring support.</p>
-        <ul>
-          <li>"Display oxygen level fluctuations in Dragon capsule"</li>
-          <li>"Suggest emergency response procedures for EVA"</li>
-        </ul>
+        <p><strong>Prompt:</strong> "How are CO2 levels trending in the capsule?"<br><strong>Response:</strong> "Rising past optimal. Recommend initiating scrubbers."</p>
       </div>
-
-      <div class="card">
-        <h3>FleetBot</h3>
-        <p>Monitors Starlink constellation alignment and health.</p>
-        <ul>
-          <li>"Map active Starlink clusters over Europe"</li>
-          <li>"Evaluate latency of satellite ground pairs"</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>OrbitBot</h3>
-        <p>Precision orbital modeling and mission planning assistant.</p>
-        <ul>
-          <li>"Generate orbit path for sun-synchronous satellite"</li>
-          <li>"Simulate deorbit burn timing for reentry"</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>FuelBot</h3>
-        <p>Tracks propulsion usage and predicts fuel needs.</p>
-        <ul>
-          <li>"Estimate methane consumption for full Starship hop"</li>
-          <li>"Balance oxidizer/fuel ratio for 3-stage rocket"</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>AIComms</h3>
-        <p>Handles deep space and satellite communication optimization.</p>
-        <ul>
-          <li>"Check current signal delay for Mars-Earth transfer"</li>
-          <li>"Auto-switch relay node to high-altitude backup"</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="aicontrol">
-    <div class="container">
-      <h2>AI Ground Control</h2>
-      <div class="card">
-        <p>Simulated command protocols</p>
-        <ul>
-          <li>Abort readiness</li>
-          <li>Emergency recovery procedures</li>
-          <li>Telemetry decision support</li>
-        </ul>
-      </div>
+      <!-- Add more bots similarly -->
     </div>
   </section>
 
@@ -309,7 +219,8 @@
     <div class="container">
       <h2>About</h2>
       <div class="card">
-        <p>This portal mirrors the futuristic AI integration philosophy of SpaceX — exploring AI, automation, and deep space command infrastructure.</p>
+        <p>SpaceX AI Portal fuses cutting-edge autonomous intelligence with next-gen space operations. It marks the dawn of an era where AI not only supports but drives decision-making in space. From launch coordination to crew safety, every layer is now more seamless, self-improving, and scalable.</p>
+        <p>This is only the beginning. Future industries like deep-ocean mining, planetary robotics, and interplanetary logistics will benefit from this robust AI blueprint.</p>
       </div>
     </div>
   </section>
@@ -349,17 +260,11 @@
       document.getElementById(id).style.display = 'block';
     }
 
-    function postMessage() {
-      const msg = msgInput.value.trim();
-      if (msg && currentUser) {
-        messages.innerHTML += `<p><strong>${currentUser}:</strong> ${msg}</p>`;
-        msgInput.value = "";
-      }
-    }
-
     setInterval(() => {
-      cpu.innerText = Math.floor(Math.random() * 90 + 10) + '%';
-      mem.innerText = Math.floor(Math.random() * 80 + 20) + '%';
+      if (document.getElementById('cpu') && document.getElementById('mem')) {
+        cpu.innerText = Math.floor(Math.random() * 90 + 10) + '%';
+        mem.innerText = Math.floor(Math.random() * 80 + 20) + '%';
+      }
     }, 3000);
   </script>
 </body>
