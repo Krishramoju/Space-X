@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SpaceX AI Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #14001f, #1a0030);
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    header {
+      background: #1a0030;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #39004d;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      height: 32px;
+    }
+    nav a {
+      color: #fff;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ff66ff;
+    }
+    .hero {
+      
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      background: rgba(20, 0, 31, 0.7);
+      padding: 1rem;
+      border-radius: 10px;
+      color: #00ffff;
+    }
+    section {
+      padding: 2rem;
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+    .card {
+      background: #260040;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ff00ff20;
+    }
+    .login-register {
+      text-align: center;
+      max-width: 400px;
+      margin: 3rem auto;
+      background-color: #260040;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 12px #00ffff40;
+    }
+    input, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 1rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+    input {
+      background: #1b002f;
+      color: #fff;
+      border: 1px solid #ff66ff30;
+    }
+    button {
+      background: #ff66ff;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 8px #ff66ff80;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    button:hover {
+      background: #cc00cc;
+      box-shadow: 0 0 12px #ff66ff;
+    }
+    img.full-width {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    ul li { margin-bottom: 0.5rem; }
+    h2, h3, h4 { color: #00ffff; }
+    a { color: #00ffff; }
+  </style>
+</head>
+<body>
+  <div class="login-register" id="loginPage">
+    <h2>Login</h2>
+    <input id="loginUser" type="text" placeholder="Username" />
+    <input id="loginPass" type="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <p>or <a href="#" onclick="switchPage('registerPage')">Register</a></p>
+  </div>
+
+  <div class="login-register" id="registerPage" style="display: none;">
+    <h2>Register</h2>
+    <input id="regUser" type="text" placeholder="New Username" />
+    <input id="regPass" type="password" placeholder="New Password" />
+    <button onclick="register()">Register</button>
+    <p>or <a href="#" onclick="switchPage('loginPage')">Login</a></p>
+  </div>
+
+  <header id="mainHeader" style="display: none">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/d/de/SpaceX-Logo.svg" alt="SpaceX" />
+    <nav>
+      <a href="#" onclick="navigate('collab')">Collab Hub</a>
+      <a href="#" onclick="navigate('api')">API Integration</a>
+      <a href="#" onclick="navigate('security')">Security</a>
+      <a href="#" onclick="navigate('apps')">Marketplace</a>
+      <a href="#" onclick="navigate('launches')">Launches</a>
+      <a href="#" onclick="navigate('starship')">Starship</a>
+      <a href="#" onclick="navigate('aibots')">AI Bots</a>
+      <a href="#" onclick="navigate('aicontrol')">AI Control</a>
+      <a href="#" onclick="navigate('about')">About</a>
+      <a href="#" onclick="navigate('brains')">Behind the Brains</a>
+    </nav>
+  </header>
+
+  <div class="hero" id="heroBanner" style="display: none">
+    <h1>Explore Autonomous Intelligence with SpaceX</h1>
+  </div>
+
+  <section id="collab">
+    <div class="container">
+      <h2>Collaboration Hub</h2>
+      <div class="card">
+        <p>Discuss topics like:</p>
+        <ul>
+          <li>AI-driven launch sequence optimization</li>
+          <li>Predictive maintenance for rockets</li>
+          <li>AI-based satellite path correction</li>
+          <li>ML for deep space communication</li>
+        </ul>
+        <textarea id="msgInput" placeholder="Post a message..." rows="3"></textarea>
+        <button onclick="postMessage()">Post</button>
+        <div id="messages"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="api">
+    <div class="container">
+      <h2>API Integration</h2>
+      <div class="card">
+        <h3>AstroBot Data Needs</h3>
+        <p>Orbital parameters, fuel tables, launch windows</p>
+      </div>
+      <div class="card">
+        <h3>FleetBot Data Needs</h3>
+        <p>Satellite telemetry, positional logs, ground station data</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="security">
+    <div class="container">
+      <h2>Security Center</h2>
+      <div class="card">
+        <p>AI Privacy Highlights:</p>
+        <ul>
+          <li>Federated learning for decentralized training</li>
+          <li>End-to-end encrypted inference models</li>
+          <li>Onboard data anonymization protocols</li>
+        </ul>
+        <p>CPU: <span id="cpu">--%</span>, Memory: <span id="mem">--%</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="apps">
+    <div class="container">
+      <h2>Marketplace AI Assistants</h2>
+      <div class="card"><h3>DockBot</h3><p>Autonomous docking planner</p></div>
+      <div class="card"><h3>HealthBot</h3><p>Monitors astronaut vitals using AI</p></div>
+    </div>
+  </section>
+
+  <section id="launches">
+    <div class="container">
+      <h2>Launches</h2>
+      <div class="card">
+        <p>Falcon 9: 257 successful launches</p>
+    
+      </div>
+    </div>
+  </section>
+
+  <section id="starship">
+    <div class="container">
+      <h2>Starship Program</h2>
+      <div class="card">
+        <p>Starship SN29 ready for orbital test</p>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="aibots">
+    <div class="container">
+      <h2>AI Mission Bots</h2>
+      <div class="card">
+        <h3>OrbitBot</h3>
+        <ul>
+          <li>Prompt: “Simulate reentry path from LEO”</li>
+          <li>Response: “Deorbit burn at 90° longitude, T‑5 mins from current orbit...”</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="aicontrol">
+    <div class="container">
+      <h2>AI Ground Control</h2>
+      <div class="card">
+        <ul>
+          <li>AI-controlled telemetry alerts</li>
+          <li>Abort readiness simulations</li>
+          <li>Fallback recovery AI logic</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>About</h2>
+      <div class="card">
+        <p>We're entering a new era where AI seamlessly governs missions — autonomous, intelligent, and precise. This portal reflects SpaceX's vision of pushing AI into orbit, laying foundations for AI-assisted industries of tomorrow.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="brains">
+    <div class="container">
+      <h2>Behind the Brains of Neuro OS</h2>
+      <div class="card">
+        <h3>Krish Ramoju</h3>
+        <p>Undergrad CSE | HackerRank Certified SDE | Headstart'25 Volunteer | LLM Enthusiast | CDSC Junior Developer | Internshala Campus Ambassador | Upcoming eArbor WMS Intern | Product Management Aspirant</p>
+        <p>I am an avid coder with certifications in programming languages, DSA, and full stack development. Currently working on improving competitive coding skills.</p>
+        <h4>Education</h4>
+        <ul>
+          <li>CBIT, B.E. CSE (2023–2027)</li>
+          <li>Aakash Institute</li>
+          <li>Sancta Maria International School</li>
+        </ul>
+        <h4>Certifications</h4>
+        <ul>
+          <li>50 Days of SQL – LeetCode</li>
+          <li>C++ OOPs – Coursera</li>
+          <li>CS50 Cybersecurity – Harvard</li>
+          <li>Database Essentials – Infosys Springboard</li>
+          <li>HTML CSS Basics – Mimo</li>
+          <li>Programming in C – NPTEL</li>
+          <li>Software Development Fundamentals – HackerRank</li>
+        </ul>
+        <h4>Skills</h4>
+        <p>Front-End & Back-End Dev, C++, HTML, CSS, SQL, DBMS, Cybersecurity, Product Thinking</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let users = {};
+    let currentUser = "";
+
+    function switchPage(id) {
+      loginPage.style.display = 'none';
+      registerPage.style.display = 'none';
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function login() {
+      const u = loginUser.value.trim(), p = loginPass.value.trim();
+      if (users[u] && users[u] === p) {
+        currentUser = u;
+        loginPage.style.display = 'none';
+        heroBanner.style.display = 'flex';
+        mainHeader.style.display = 'flex';
+        navigate('collab');
+      } else alert('Invalid credentials');
+    }
+
+    function register() {
+      const u = regUser.value.trim(), p = regPass.value.trim();
+      if (!u || !p) return alert('Fill all fields');
+      if (users[u]) return alert('Username taken');
+      users[u] = p;
+      alert('Registered! Now login.');
+      switchPage('loginPage');
+    }
+
+    function navigate(id) {
+      document.querySelectorAll('section').forEach(s => s.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function postMessage() {
+      const msg = msgInput.value.trim();
+      if (msg && currentUser) {
+        messages.innerHTML += `<p><strong>${currentUser}:</strong> ${msg}</p>`;
+        msgInput.value = "";
+      }
+    }
+
+    setInterval(() => {
+      cpu.innerText = Math.floor(Math.random() * 90 + 10) + '%';
+      mem.innerText = Math.floor(Math.random() * 80 + 20) + '%';
+    }, 3000);
+  </script>
+</body>
+</html>
